@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    multiset<int>ms;
+    ms.insert(1);
+    ms.insert(2);
+    ms.insert(1);
+    ms.insert(2);
+    ms.insert(3);
+    ms.insert(1);
+    ms.insert(4);
+    ms.insert(5);
+    ms.insert(6);
+    ms.insert(7);
+    cout<<"multiset size:"<<ms.size()<<endl;
+    ///multiset e element golo increasingly sorted thakee But unique thakee na.
+    multiset<int>::iterator z;
+    z=ms.find(2);//find function ta dara individual akta element ke mark kore and erase diye seta ke erase kore feli.
+    ms.erase(z);//find na koree ms.erase(2) dile 2 er sobgolo value erase hoye jeto multiset thekee.
+   multiset<int>::iterator i;
+   for(i=ms.begin();i!=ms.end();i++)
+   {
+    cout<<*i<<" ";
+   }
+   cout<<endl;
+   //Abar multiset e upperbound and lower bound use kore akta range er value golo remove korte pari.
+   multiset<int>::iterator l,u;
+    l=ms.lower_bound(3);
+    u=ms.upper_bound(5);
+   ms.erase(l,u);
+   cout<<"After erasing l to u portion:\n";
+   for(i=ms.begin();i!=ms.end();i++)
+   {
+    cout<<*i<<" ";
+   }
+   cout<<endl;
+    return 0;
+}
